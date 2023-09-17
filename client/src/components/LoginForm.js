@@ -4,7 +4,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
+//getting rid of the API routes
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
@@ -12,25 +12,33 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
+  //Define a mutation hook named 'login' and destructure its 'error' property 
 
   const [login, { error }] = useMutation(LOGIN_USER);
-
+// This useEffect hook runs whenever 'error' changes.
   useEffect(() => {
+      // Check if 'error' exists (i.e., there was an error during the mutation).
     if (error) {
       setShowAlert(true);
     } else {
+          // If there's an error, set 'showAlert' to true to display an alert.
       setShowAlert(false);
     }
   }, [error]);
-
+// Log the 'login' object for debugging purposes.
   console.log('Login', login);
 
+  // Define a function to handle input changes in the form.
   const handleInputChange = (event) => {
+     // Extract the 'name' and 'value' properties from the input element.
     const { name, value } = event.target;
+     // Update the 'userFormData' state by spreading its current values and updating the 'name' property.
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+  // Define a function to handle form submission.
   const handleFormSubmit = async (event) => {
+     // Prevent the default form submission behavior, which would cause a page reload.
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -39,7 +47,7 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+//comment
     try {
       const {data} = await login({
         variables: {...userFormData},

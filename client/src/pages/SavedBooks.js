@@ -38,7 +38,7 @@ const SavedBooks = () => {
    // Attempt to remove a book using the 'removeBook' mutation.
 try {
   // Use the 'removeBook' mutation function, passing in the 'bookId' as variables.
-  const { data } = await removeBook({
+  const {data} = await removeBook({
     variables: { bookId },
   });
 

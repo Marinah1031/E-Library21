@@ -37,14 +37,19 @@ const SearchBooks = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!searchInput) {
-      return false;
-    }
+  // Check if 'searchInput' is falsy (e.g., empty or undefined).
+if (!searchInput) {
+  // If 'searchInput' is empty or undefined, return false or handle the condition appropriately.
+  // This code block likely prevents making an unnecessary API request when there is no search input.
+  return false;
+}
 
-    try {
-      const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
-      );
+try {
+  // Attempt to fetch data from the Google Books API using the 'searchInput' as the query parameter.
+  const response = await fetch(
+    `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+  );
+  
 
 
       if (!response.ok) {

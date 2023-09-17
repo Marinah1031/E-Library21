@@ -35,10 +35,12 @@ const SavedBooks = () => {
       return false;
     }
 
-    try {
-      const {data} = await removeBook({
-        variables: { bookId},
-      });
+   // Attempt to remove a book using the 'removeBook' mutation.
+try {
+  // Use the 'removeBook' mutation function, passing in the 'bookId' as variables.
+  const { data } = await removeBook({
+    variables: { bookId },
+  });
 
       // upon success, remove book's id from localStorage
       removeBookId(bookId);

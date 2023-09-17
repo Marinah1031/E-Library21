@@ -8,17 +8,22 @@ import {
 } from 'react-bootstrap';
 
 //deleting path to API to replace with queries and mutations
-import {useQuery, useMutation } from '@apollo/client';
-import{ QUERY_ME } from '../utils/queries';
+// Import necessary dependencies and GraphQL queries/mutations, as well as local utility functions and Auth.
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
 import { removeBookId } from '../utils/localStorage';
-
 import Auth from '../utils/auth';
+
+// Define a React functional component named 'SavedBooks'.
 const SavedBooks = () => {
+  // Use the 'useQuery' hook to fetch data for the currently authenticated user.
   const { loading, data } = useQuery(QUERY_ME);
+  
+  // Use the 'useMutation' hook to create a 'removeBook' function for removing books from the user's saved books.
   const [removeBook, { error }] = useMutation(REMOVE_BOOK); 
 
-  
+  // Extract user data from the 'data' object, defaulting to an empty object if it doesn't exist.
   const userData = data?.me || {};
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database

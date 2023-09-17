@@ -53,15 +53,24 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
+    // Attempt to execute the 'addUser' mutation with the provided user data.
     try {
+      // Use the 'addUser' mutation function, passing in the user form data as variables.
       const { data } = await addUser({
         variables: { ...userFormData },
       });
+
+      // Log the 'data' received from the mutation (for debugging purposes).
       console.log(data);
+
+      // If the user registration is successful, call a function (e.g., 'Auth.login') to handle user authentication,
+      // passing the authentication token from the 'data' object as an argument.
       Auth.login(data.addUser.token);
     } catch (err) {
+      // If an error occurs during the 'addUser' mutation (e.g., validation error or server error), catch it and log the error.
       console.error(err);
     }
+
 
     setUserFormData({
       username: '',

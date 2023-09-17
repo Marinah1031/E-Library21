@@ -47,18 +47,23 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-//comment
+// Try to execute the login mutation with the provided user data.
     try {
+      // Use the 'login' mutation function, passing in the user form data as variables.
       const {data} = await login({
         variables: {...userFormData},
       });
 
       console.log(data);
+
+       // If the login is successful, call a function (e.g., 'Auth.login') to handle user authentication,
+  // passing the authentication token from the 'data' object as an argument.
       Auth.login(data.login.token);
     } catch (e) {
+        // If an error occurs during the login mutation, catch it and log the error.
       console.error(e);
     }
-
+// After the login attempt, reset the 'userFormData' state to clear the form input fields.
     setUserFormData({
       username: '',
       email: '',

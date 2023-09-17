@@ -61,17 +61,12 @@ const SignupForm = () => {
       });
 
       // Log the 'data' received from the mutation (for debugging purposes).
-      console.log(data);
-
-      // If the user registration is successful, call a function (e.g., 'Auth.login') to handle user authentication,
-      // passing the authentication token from the 'data' object as an argument.
+     console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
-      // If an error occurs during the 'addUser' mutation (e.g., validation error or server error), catch it and log the error.
       console.error(err);
     }
-
-
+    
     setUserFormData({
       username: '',
       email: '',

@@ -21,7 +21,7 @@ const SavedBooks = () => {
   const { loading, data } = useQuery(QUERY_ME);
   
   // Use the 'useMutation' hook to create a 'removeBook' function for removing books from the user's saved books.
-  const [removeBook] = useMutation(REMOVE_BOOK); 
+  const [removeBook, { error }] = useMutation(REMOVE_BOOK); 
 
   // Extract user data from the 'data' object, defaulting to an empty object if it doesn't exist.
   const userData = data?.me || {};
@@ -35,12 +35,10 @@ const SavedBooks = () => {
       return false;
     }
 
-   // Attempt to remove a book using the 'removeBook' mutation.
-try {
-  // Use the 'removeBook' mutation function, passing in the 'bookId' as variables.
-  const {data} = await removeBook({
-    variables: { bookId },
-  });
+    try {
+      const {data} = await removeBook({
+        variables: { bookId},
+      });
 
       // upon success, remove book's id from localStorage
       removeBookId(bookId);

@@ -20,7 +20,7 @@ const server = new ApolloServer({
 });
 
 // Configure middleware for handling URL-encoded and JSON data.
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
 // If the application is in production mode, serve the static React build files.

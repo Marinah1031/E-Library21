@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Container,
   Card,
@@ -10,7 +10,7 @@ import {
 //deleting path to API to replace with queries and mutations
 import {useQuery, useMutation } from '@apollo/client';
 import{ QUERY_ME } from '../utils/queries';
-import { REVOVE_BOOK } from '../utils/mutations';
+import { REMOVE_BOOK } from '../utils/mutations';
 import { removeBookId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';

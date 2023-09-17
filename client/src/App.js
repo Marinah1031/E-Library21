@@ -1,6 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {ApolloClient, InMemoryCache, ApolloProvider, createHttpLink,} from '@apollo/client';
+import { 
+  BrowserRouter as Router, 
+  Routes, 
+  Route } from 'react-router-dom';
+import {
+  ApolloClient, 
+  InMemoryCache, 
+  ApolloProvider, 
+  createHttpLink,} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
@@ -29,6 +36,7 @@ const client = new ApolloClient ({
 
 function App() {
   return (
+    <ApolloProvider client={client}>
     <Router>
       <>
         <Navbar />
@@ -48,6 +56,7 @@ function App() {
         </Routes>
       </>
     </Router>
+    </ApolloProvider>
   );
 }
 

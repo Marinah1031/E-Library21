@@ -43,14 +43,14 @@ const SignupForm = () => {
     }
 
     try {
-      const {data} = await addUser({
-        variables: {...userFormData},
+      const { data } = await addUser({
+        variables: { ...userFormData },
       });
       console.log(data);
       Auth.login(data.addUser.token);
-      } catch (err){
-        console.error("Error adding user", err)}
-
+    } catch (err) {
+      console.error(err);
+    }
 
     setUserFormData({
       username: '',
@@ -59,12 +59,16 @@ const SignupForm = () => {
     });
   };
 
+
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} 
+      onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        <Alert
+          dismissible onClose={() => setShowAlert(false)} show={showAlert} variant="danger"
+        >
           Something went wrong with your signup!
         </Alert>
 

@@ -4,33 +4,44 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 // import Auth from '../utils/auth'
+//delete API route
 import Auth from '../utils/auth';
 
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ 
-    username: '', email: '', password: '' 
+  const [userFormData, setUserFormData] = useState({
+    username: '', email: '', password: ''
   });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+  // Define a mutation hook named 'addUser' and destructure its 'error' property.
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  // This useEffect hook runs whenever 'error' changes.
   useEffect(() => {
+    // Check if 'error' exists (i.e., there was an error during the mutation).
     if (error) {
+      // If there's an error, set 'showAlert' to true to display an alert.
       setShowAlert(true);
     } else {
+      // If there's no error, hide the alert by setting 'showAlert' to false.
       setShowAlert(false);
     }
   }, [error]);
 
+  // Define a function to handle input changes in the form.
   const handleInputChange = (event) => {
-  const { name, value } = event.target;
-  setUserFormData({ ...userFormData, [name]: value });
-};
+    // Extract the 'name' and 'value' properties from the input element.
+    const { name, value } = event.target;
+
+    // Update the 'userFormData' state by spreading its current values and updating the 'name' property.
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -63,8 +74,8 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} 
-      onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated}
+        onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert
           dismissible onClose={() => setShowAlert(false)} show={showAlert} variant="danger"

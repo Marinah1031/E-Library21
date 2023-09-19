@@ -47,4 +47,6 @@ const startApolloServer = async () => {
   });
 };
 
-startApolloServer(); // Start the Apollo Server and Express server.
+startApolloServer() 
+.catch(err => console.log (err)) 
+// Start the Apollo Server and Express server.

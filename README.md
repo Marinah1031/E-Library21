@@ -5,6 +5,10 @@
 ## Description
 
 The E-Library is a user-friendly and feature-rich book search and management application that empowers users to explore, discover, and organize their favorite books. With E-Library, avid readers and book enthusiasts can effortlessly search for books from a vast library, save their favorite titles, and keep track of their reading journey. 
+![Screenshot (121)](https://github.com/Marinah1031/E-Library21/assets/125934804/91367908-b94d-4ecb-8d03-5396cafb89c1)
+![Screenshot (122)](https://github.com/Marinah1031/E-Library21/assets/125934804/69026f6b-9873-404e-a27d-a526616af689)
+![Screenshot (123)](https://github.com/Marinah1031/E-Library21/assets/125934804/182a8589-ab44-4f5b-b106-1959965af865)
+![Screenshot (125)](https://github.com/Marinah1031/E-Library21/assets/125934804/3b8f8555-c6dd-44d0-b992-c57b9b542566)
 
 ## Deployed Link
 https://elibrary21-bf7812c11ec2.herokuapp.com/

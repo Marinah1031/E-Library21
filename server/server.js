@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 // Start the Apollo Server and the Express server.
 const startApolloServer = async () => {
   await server.start(); // Start the Apollo Server.
-
+  server.applyMiddleware({ app });
   db.once('open', () => {
     // Once the database connection is open:
     app.listen(PORT, () => {

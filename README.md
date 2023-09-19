@@ -35,7 +35,8 @@ https://elibrary21-bf7812c11ec2.herokuapp.com/
 - The main point of this project was to refactor the code that was given.
 - We must take a fully built application utilizing restful API's and the refactor is to be using GraphQL API build with Apollo Server. The App is built using the MERN stack with a REACT front end.
 - MongoDB database and Node.js/Express.js server and API is used.
-- Please note that the deployment does not deploy correctly, I have asked TA, Nick, to help me debug this issue and still was not able to figure out why it will not properly deploy on heroku. 
+
+- Deploys on Heroku with help of tutor Trinh Nguyen
   
 ## License
 
